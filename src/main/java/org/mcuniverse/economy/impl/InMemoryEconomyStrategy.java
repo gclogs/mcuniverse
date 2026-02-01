@@ -57,6 +57,12 @@ public class InMemoryEconomyStrategy implements EconomyStrategy {
     }
 
     @Override
+    public void setBalance(UUID uuid, BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) < 0) return; // 음수 설정 방지
+        balances.put(uuid, amount);
+    }
+
+    @Override
     public void onShutdown() {
         // 메모리 방식은 프로세스 종료 시 OS가 메모리를 회수하므로 별도 작업이 필요 없습니다.
         // 추후 파일 저장 기능이 추가된다면 여기서 saveToFile() 등을 호출합니다.
