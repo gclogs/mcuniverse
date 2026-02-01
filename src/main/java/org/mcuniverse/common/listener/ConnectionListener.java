@@ -1,4 +1,4 @@
-package org.mcuniverse.listener;
+package org.mcuniverse.common.listener;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.GlobalEventHandler;
