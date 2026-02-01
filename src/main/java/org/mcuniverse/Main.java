@@ -9,35 +9,39 @@ import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.LightingChunk;
 import net.minestom.server.instance.block.Block;
-import org.mcuniverse.economy.EconomyFactory;
-import org.mcuniverse.economy.EconomyService;
-import org.mcuniverse.economy.EconomyStrategy;
-import org.mcuniverse.economy.commands.EconomyCommand;
-import org.mcuniverse.listener.ConnectionListener;
-import org.mcuniverse.island.manager.IslandManager;
-import org.mcuniverse.island.commands.IslandCommand;
-import org.mcuniverse.managers.SpawnManager;
+import org.mcuniverse.common.GameFeature;
+import org.mcuniverse.common.LampFactory;
+import org.mcuniverse.economy.EconomyFeature;
+import org.mcuniverse.essentials.EssentialsFeature;
+import org.mcuniverse.essentials.GameModeExtension;
+import org.mcuniverse.common.listener.ConnectionListener;
+import org.mcuniverse.common.managers.SpawnManager;
+import org.mcuniverse.rank.Rank;
+import org.mcuniverse.rank.RankFeature;
+import org.mcuniverse.rank.commands.RankCommand;
+import revxrsal.commands.Lamp;
+import revxrsal.commands.minestom.actor.MinestomCommandActor;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
-    // 전역에서 접근 가능한 경제 서비스 인스턴스 (싱글톤처럼 활용)
-    private static EconomyService economyService;
+    private static final List<GameFeature> features = new ArrayList<>();
 
     public static void main(String[] args) {
+        createServer();
+    }
 
+    private static void createServer() {
         MinecraftServer minecraftServer = MinecraftServer.init();
+        
+        // 랭크 기능 미리 초기화 (권한 처리를 위해 Service가 필요함)
+        RankFeature rankFeature = new RankFeature();
+        rankFeature.enable(minecraftServer, null); // Service 생성 (Lamp는 null)
 
-        // --- [ 경제 시스템 초기화 ] ---
-        // 1. 저장소 전략 선택 (메모리, DB 등 확장성을 고려한 팩토리 패턴)
-        EconomyStrategy strategy = EconomyFactory.createStrategy(EconomyFactory.StorageType.MEMORY);
-        // 2. 서비스 인스턴스 생성 및 전략 주입 (Dependency Injection)
-        economyService = new EconomyService(strategy);
-
-        MinecraftServer.getSchedulerManager().buildShutdownTask(() -> {
-            System.out.println("경제 시스템 데이터 정리중...");
-            economyService.shutdown();
-        });
-
+        // 인스턴스 설정
         InstanceManager instanceManager = MinecraftServer.getInstanceManager();
         InstanceContainer instanceContainer = instanceManager.createInstanceContainer();
 
@@ -47,34 +51,52 @@ public class Main {
         Pos spawnPosition = new Pos(0, 2, 0);
         SpawnManager.setSpawn(instanceContainer, spawnPosition);
 
-        // 관리자 객체 생성
-        IslandManager islandManager = new IslandManager();
-
         // 이벤트 리스너 등록
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
         globalEventHandler.addListener(AsyncPlayerConfigurationEvent.class, event -> {
             final Player player = event.getPlayer();
-
-            // 플레이어 접속 시 경제 계정 생성
-            economyService.createAccount(player.getUuid());
-
             event.setSpawningInstance(instanceContainer);
             player.setRespawnPoint(new Pos(0, 2, 0));
+
+            // [개발용] 접속하는 모든 플레이어에게 OP(권한 레벨 4)와 ADMIN 랭크 자동 지급
+            player.setPermissionLevel(4);
+            rankFeature.getRankService().setRank(player.getUuid(), Rank.ADMIN);
         });
         new ConnectionListener(globalEventHandler);
 
-        // 명령어 등록
-        MinecraftServer.getCommandManager().register(new IslandCommand(islandManager));
-        MinecraftServer.getCommandManager().register(new EconomyCommand(economyService));
+        // --- [ 모듈 등록 및 초기화 ] ---
+        features.add(rankFeature);
+        features.add(new EconomyFeature());
+        features.add(new EssentialsFeature());
+
+        // Lamp 생성 (Factory 사용)
+        Lamp<MinestomCommandActor> lamp = LampFactory.create(
+                rankFeature.getRankService(),
+                new GameModeExtension() // 게임모드 관련 설정(파라미터, 자동완성) 주입
+        );
+
+        // 나머지 기능 활성화
+        for (GameFeature feature : features) {
+            feature.enable(minecraftServer, lamp);
+        }
+
+        // 종료 작업 등록
+        MinecraftServer.getSchedulerManager().buildShutdownTask(() -> {
+            System.out.println("모든 시스템 데이터 정리중...");
+            for (GameFeature feature : features) {
+                feature.disable(minecraftServer);
+            }
+        });
 
         minecraftServer.start("0.0.0.0", 25565);
-    }
 
-    /**
-     * 초기화된 경제 서비스 인스턴스를 반환합니다.
-     * @return EconomyService 객체
-     */
-    public static EconomyService getEconomyService() {
-        return economyService;
+        // [추가] 인텔리제이 콘솔에서 명령어 입력을 가능하게 하는 스레드
+        new Thread(() -> {
+            Scanner scanner = new Scanner(System.in);
+            while (scanner.hasNextLine()) {
+                String command = scanner.nextLine();
+                MinecraftServer.getCommandManager().execute(MinecraftServer.getCommandManager().getConsoleSender(), command);
+            }
+        }, "Console-Input").start();
     }
 }
