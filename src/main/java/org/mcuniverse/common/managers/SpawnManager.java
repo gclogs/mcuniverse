@@ -1,4 +1,4 @@
-package org.mcuniverse.managers;
+package org.mcuniverse.common.managers;
 
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
