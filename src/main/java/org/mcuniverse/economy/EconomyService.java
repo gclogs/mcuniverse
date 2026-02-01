@@ -30,6 +30,10 @@ public class EconomyService {
         return strategy.withdraw(playerUuid, BigDecimal.valueOf(amount));
     }
 
+    public void setBalance(UUID playerUuid, double amount) {
+        strategy.setBalance(playerUuid, BigDecimal.valueOf(amount));
+    }
+
     public void shutdown() {
         strategy.onShutdown();
     }
