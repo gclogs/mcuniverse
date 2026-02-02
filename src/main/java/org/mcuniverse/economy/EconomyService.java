@@ -1,6 +1,5 @@
 package org.mcuniverse.economy;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 public class EconomyService {
@@ -12,29 +11,25 @@ public class EconomyService {
         this.strategy = strategy;
     }
 
-    public void createAccount(UUID playerUuid) {
-        if (!strategy.hasAccount(playerUuid)) {
-            strategy.createAccount(playerUuid, BigDecimal.ZERO);
+    public void createAccount(UUID uuid) {
+        if (!strategy.hasAccount(uuid)) {
+            strategy.createAccount(uuid, 0L);
         }
     }
 
-    public BigDecimal getBalance(UUID playerUuid) {
-        return strategy.getBalance(playerUuid);
+    public long getAccount(UUID uuid, EconomyAccount filedName) {
+        return strategy.getAccount(uuid, filedName);
     }
 
-    public boolean deposit(UUID playerUuid, double amount) {
-        return strategy.deposit(playerUuid, BigDecimal.valueOf(amount));
+    public boolean deposit(UUID uuid, EconomyAccount filedName, long amount) {
+        return strategy.deposit(uuid, filedName, amount);
     }
 
-    public boolean withdraw(UUID playerUuid, double amount) {
-        return strategy.withdraw(playerUuid, BigDecimal.valueOf(amount));
+    public boolean withdraw(UUID uuid, EconomyAccount filedName, long amount) {
+        return strategy.withdraw(uuid, filedName, amount);
     }
 
-    public void setBalance(UUID playerUuid, double amount) {
-        strategy.setBalance(playerUuid, BigDecimal.valueOf(amount));
-    }
-
-    public void shutdown() {
-        strategy.onShutdown();
+    public void setAccount(UUID uuid, EconomyAccount filedName, long amount) {
+        strategy.setAccount(uuid, filedName, amount);
     }
 }
