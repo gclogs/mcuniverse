@@ -1,9 +1,9 @@
-package org.mcuniverse.decorator.impl.title;
+package org.mcuniverse.cosmetics.impl.title;
 
 import net.kyori.adventure.text.Component;
 import net.minestom.server.entity.Player;
-import org.mcuniverse.decorator.api.Cosmetic;
-import org.mcuniverse.decorator.api.CosmeticType;
+import org.mcuniverse.cosmetics.api.Cosmetic;
+import org.mcuniverse.cosmetics.api.CosmeticType;
 
 public class TitleCosmetic implements Cosmetic {
     private final String id;
