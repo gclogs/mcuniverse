@@ -16,7 +16,6 @@ import org.mcuniverse.common.database.DatabaseManager;
 import org.mcuniverse.economy.EconomyFeature;
 import org.mcuniverse.essentials.EssentialsFeature;
 import org.mcuniverse.essentials.GameModeExtension;
-import org.mcuniverse.common.listener.ConnectionListener;
 import org.mcuniverse.common.managers.SpawnManager;
 import org.mcuniverse.rank.Rank;
 import org.mcuniverse.rank.RankFeature;
@@ -60,16 +59,12 @@ public class Main {
             final Player player = event.getPlayer();
             event.setSpawningInstance(instanceContainer);
             player.setRespawnPoint(new Pos(0, 2, 0));
-
-            // [개발용] 접속하는 모든 플레이어에게 OP(권한 레벨 4)와 ADMIN 랭크 자동 지급
-            player.setPermissionLevel(4);
-            rankFeature.getRankService().setRank(player.getUuid(), Rank.ADMIN);
         });
-        new ConnectionListener(globalEventHandler);
 
         // --- [ 모듈 등록 및 초기화 ] ---
         features.add(rankFeature);
         features.add(new EconomyFeature());
+        features.add(new org.mcuniverse.shop.ShopFeature()); // Shop 등록
         features.add(new EssentialsFeature());
 
         // Lamp 생성 (Factory 사용)
