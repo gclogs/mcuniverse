@@ -11,9 +11,9 @@ public class EconomyService {
         this.strategy = strategy;
     }
 
-    public void createAccount(UUID uuid) {
+    public void createAccount(UUID uuid, String name) {
         if (!strategy.hasAccount(uuid)) {
-            strategy.createAccount(uuid, 0L);
+            strategy.createAccount(uuid, name, 0L);
         }
     }
 
@@ -31,5 +31,13 @@ public class EconomyService {
 
     public void setAccount(UUID uuid, EconomyAccount filedName, long amount) {
         strategy.setAccount(uuid, filedName, amount);
+    }
+
+    public void deleteAccount(UUID uuid) {
+        strategy.deleteAccount(uuid);
+    }
+
+    public void expireAccountCache(UUID uuid, long seconds) {
+        strategy.expireAccountCache(uuid, seconds);
     }
 }
