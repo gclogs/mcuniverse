@@ -10,11 +10,11 @@ public interface RankStrategy {
 
     boolean hasRank(UUID uuid);
 
-    void createRank(UUID uuid, Rank rank);
+    void createRank(UUID uuid, String name, Rank rank);
 
     Rank getRank(UUID uuid);
 
     void setRank(UUID uuid, Rank rank);
 
-    void onShutdown();
+    default void expireRankCache(UUID uuid, long seconds) {}
 }
