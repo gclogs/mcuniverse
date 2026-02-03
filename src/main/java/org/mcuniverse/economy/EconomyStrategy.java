@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface EconomyStrategy {
     boolean hasAccount(UUID uuid);
 
-    void createAccount(UUID uuid, long initialAmount);
+    void createAccount(UUID uuid, String name, long initialAmount);
 
     long getAccount(UUID uuid, EconomyAccount fieldName);
 
@@ -18,4 +18,8 @@ public interface EconomyStrategy {
     boolean withdraw(UUID uuid, EconomyAccount fieldName, long amount);
 
     void setAccount(UUID uuid, EconomyAccount fieldName, long amount);
+
+    void deleteAccount(UUID uuid);
+
+    default void expireAccountCache(UUID uuid, long seconds) {}
 }
