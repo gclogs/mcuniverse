@@ -10,8 +10,8 @@ storage.warp.type: MEMORY
 storage.cosmetics.type: JSON
 
 # MongoDB Settings
-mongodb.uri: mongodb+srv://gclogs:Muniverse0202!@cluster0.h7iurln.mongodb.net/
+mongodb.uri:
 mongodb.database: mcuniverse
 
 # RedisDB Settings
-redis.uri: redis://default:sKPYYJViLuwaBGTkciioraCkqfx9vZZB@redis-19241.c16.us-east-1-3.ec2.cloud.redislabs.com:19241
+redis.uri:
