@@ -1,5 +1,9 @@
 package org.mcuniverse.common;
 
+import org.mcuniverse.economy.Currency;
+import org.mcuniverse.economy.CurrencyParameterType;
+import org.mcuniverse.rank.RankGroup;
+import org.mcuniverse.rank.RankParameterType;
 import org.mcuniverse.rank.RankService;
 import org.mcuniverse.rank.permission.RankPermissionFactory;
 import revxrsal.commands.Lamp;
@@ -11,10 +15,15 @@ public class LampFactory {
     public static Lamp<MinestomCommandActor> create(RankService rankService, LampExtension... extensions) {
         var builder = MinestomLamp.builder();
 
-        // 권한 팩토리 등록
         builder.permissionFactory(new RankPermissionFactory(rankService));
+        builder.parameterTypes(params -> {
+            params.addParameterType(RankGroup.class, new RankParameterType());
+        });
 
-        // 확장 기능(파라미터 타입, 자동완성 등) 일괄 등록
+        builder.parameterTypes(params -> {
+            params.addParameterType(Currency.class, new CurrencyParameterType());
+        });
+
         for (LampExtension extension : extensions) {
             extension.register(builder);
         }
