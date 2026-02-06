@@ -1,0 +1,184 @@
+<mxfile host="Electron" modified="2024-02-04T00:00:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="abcdefgh" version="24.0.0" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- CORE / COMMON -->
+        <mxCell id="CoreGroup" value="Core / Common" style="swipe;whiteSpace=wrap;html=1;dashed=1;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+            <mxGeometry x="40" y="40" width="800" height="300" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="Main" value="Main" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="GameFeature" value="&lt;&lt;interface&gt;&gt;&#xa;GameFeature" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="350" y="160" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ConfigManager" value="ConfigManager" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="240" y="80" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DatabaseManager" value="DatabaseManager" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="420" y="80" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="LampFactory" value="LampFactory" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="600" y="80" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="LampExtension" value="&lt;&lt;interface&gt;&gt;&#xa;LampExtension" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="600" y="160" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- RANK SYSTEM -->
+        <mxCell id="RankGroup" value="Rank System" style="swipe;whiteSpace=wrap;html=1;dashed=1;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+            <mxGeometry x="40" y="380" width="360" height="400" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="RankFeature" value="RankFeature" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RankService" value="RankService" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="500" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RankStrategy" value="&lt;&lt;interface&gt;&gt;&#xa;RankStrategy" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="580" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Rank" value="&lt;&lt;enumeration&gt;&gt;&#xa;Rank" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="240" y="500" width="120" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ECONOMY SYSTEM -->
+        <mxCell id="EconomyGroup" value="Economy System" style="swipe;whiteSpace=wrap;html=1;dashed=1;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+            <mxGeometry x="440" y="380" width="400" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="EconomyFeature" value="EconomyFeature" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="420" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="EconomyService" value="EconomyService" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="500" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="EconomyStrategy" value="&lt;&lt;interface&gt;&gt;&#xa;EconomyStrategy" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="580" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="MongoEconomyStrategy" value="MongoEconomyStrategy" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="660" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="EconomyAccount" value="&lt;&lt;enumeration&gt;&gt;&#xa;EconomyAccount" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="660" y="500" width="140" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- ESSENTIALS SYSTEM -->
+        <mxCell id="EssentialsGroup" value="Essentials System" style="swipe;whiteSpace=wrap;html=1;dashed=1;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+            <mxGeometry x="40" y="800" width="400" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="EssentialsFeature" value="EssentialsFeature" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="840" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="WarpService" value="WarpService" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="920" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="WarpStrategy" value="&lt;&lt;interface&gt;&gt;&#xa;WarpStrategy" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1000" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="InMemoryWarpStrategy" value="InMemoryWarpStrategy" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1080" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Warp" value="&lt;&lt;record&gt;&gt;&#xa;Warp" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="260" y="920" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- COSMETICS SYSTEM -->
+        <mxCell id="CosmeticsGroup" value="Cosmetics System" style="swipe;whiteSpace=wrap;html=1;dashed=1;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;" vertex="1" parent="1">
+            <mxGeometry x="480" y="800" width="500" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="DecoratorFeature" value="DecoratorFeature" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="500" y="840" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CosmeticManager" value="CosmeticManager" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="500" y="920" width="160" height="50" as="geometry" />
+        </mxCell>
+         <mxCell id="Cosmetic" value="&lt;&lt;interface&gt;&gt;&#xa;Cosmetic" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="700" y="920" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CosmeticType" value="&lt;&lt;enumeration&gt;&gt;&#xa;CosmeticType" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="880" y="920" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CosmeticImpls" value="Implementations" style="swipe;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="1">
+             <mxGeometry x="700" y="1000" width="280" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="ColorChatCosmetic" value="ColorChatCosmetic" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="710" y="1020" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TitleCosmetic" value="TitleCosmetic" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="840" y="1020" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WardrobeCosmetic" value="WardrobeCosmetic" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="710" y="1080" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- RELATIONSHIPS -->
+        <!-- Implements GameFeature -->
+        <mxCell id="rel1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="RankFeature" target="GameFeature">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="EconomyFeature" target="GameFeature">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="EssentialsFeature" target="GameFeature">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="DecoratorFeature" target="GameFeature">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Rank Impls -->
+        <mxCell id="rel5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="RankFeature" target="RankService">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="RankService" target="RankStrategy">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Economy Impls -->
+        <mxCell id="rel7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="EconomyFeature" target="EconomyService">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="EconomyService" target="EconomyStrategy">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="MongoEconomyStrategy" target="EconomyStrategy">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Essentials Impls -->
+        <mxCell id="rel10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="EssentialsFeature" target="WarpService">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="WarpService" target="WarpStrategy">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="InMemoryWarpStrategy" target="WarpStrategy">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Cosmetic Impls -->
+        <mxCell id="rel13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="DecoratorFeature" target="CosmeticManager">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="CosmeticManager" target="Cosmetic">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="ColorChatCosmetic" target="Cosmetic">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="TitleCosmetic" target="Cosmetic">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="WardrobeCosmetic" target="Cosmetic">
+            <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
